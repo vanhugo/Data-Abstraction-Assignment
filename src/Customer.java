@@ -15,8 +15,8 @@ public class Customer {
     private String name; // Customer name
 
     // Constants to define account types
-    public static final String CHECKING = "Checking";
-    public static final String SAVING = "Saving";
+    public static final String CHECKING = "CHECKING";
+    public static final String SAVING = "SAVING";
 
     // Constant to define overdraft limit
     private final int OVERDRAFT = -100;
@@ -50,7 +50,7 @@ public class Customer {
             return 0;
         }
         if (account != SAVING && account != CHECKING) {
-            System.out.println("Account must be Checking or Saving");
+            System.out.println("Account must be CHECKING or SAVING");
             return 0;
         }
         double balance = (account == SAVING) ? savingBalance : checkBalance;
@@ -72,7 +72,7 @@ public class Customer {
             return 0;
         }
         if (account != SAVING && account != CHECKING) {
-            System.out.println("Account must be Checking or Saving");
+            System.out.println("Account must be CHECKING or SAVING");
             return 0;
         }
         if (checkOverdraft(amt, account)) {

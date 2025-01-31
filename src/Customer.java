@@ -43,7 +43,10 @@ public class Customer {
         this.withdraws = new ArrayList<>();
     }
 
-    // Method to perform a deposit transaction
+    // Requires: amt >= 0, account is either CHECKING or SAVING
+    // this.deposits, this.checkBalance, this.savingBalance
+    // Deposits the specified amount into the given account and updates the balance.
+
     public double deposit(double amt, Date date, String account) {
         if (amt < 0) {
             System.out.println("Deposit amount must not be negative");
@@ -65,7 +68,9 @@ public class Customer {
         return 0;
     }
 
-    // Method to perform a withdrawal transaction
+    // Requires: amt >= 0, account is either CHECKING or SAVING
+    // Modifies: this.withdraws, this.checkBalance, this.savingBalance
+    // Effects: Withdraws the specified amount from the given account and updates the balance.
     public double withdraw(double amt, Date date, String account) {
         if (amt < 0) {
             System.out.println("Withdrawal amount must not be negative");
@@ -90,7 +95,9 @@ public class Customer {
         return 0;
     }
 
-    // Method to check if a withdrawal exceeds overdraft limit
+    // Requires: Requires: amt >= 0, account is either CHECKING or SAVING
+    // Modifies: None
+    // Effects: Returns true if withdrawal would exceed overdraft limit.
     private boolean checkOverdraft(double amt, String account) {
         double balance = (account == SAVING) ? savingBalance : checkBalance;
         balance -= amt;
@@ -101,21 +108,27 @@ public class Customer {
         return false;
     }
 
-    // Method to display all deposit transactions
+    // Requires: None
+    // Modifies: None
+    // Effects: Displays all deposit transactions.
     public void displayDeposits() {
         for (Deposit d : deposits) {
             System.out.println(d);
         }
     }
 
-    // Method to display all withdrawal transactions
+    // Requires: None
+    // Modifies: None
+    // Effects: Displays all withdrawal transactions.
     public void displayWithdraws() {
         for (Withdraw w : withdraws) {
             System.out.println(w);
         }
     }
 
-    // Method to display all transactions and account balances
+    // Requires: None
+    // Modifies: None
+    // Effects: Displays all transactions and account balances.
     public void displayAll() {
         displayDeposits();
         displayWithdraws();

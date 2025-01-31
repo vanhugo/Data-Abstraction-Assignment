@@ -64,7 +64,7 @@ public class Main {
                 if ("SAVING".equals(selectedAccount))
                     customer.withdraw(selectedAmount, new Date(), customer.SAVING);
                 else {
-                    customer.withdraw(selectedAmount, new Date(), customer.SAVING);
+                    customer.withdraw(selectedAmount, new Date(), customer.CHECKING);
                 }
             }
 
